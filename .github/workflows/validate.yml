@@ -1,0 +1,22 @@
+name: validate
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  source-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check JavaScript and translation data
+        run: |
+          node --check translator.js
+          node --check manage.js
+          node -e 'JSON.parse(require("fs").readFileSync("translations.json", "utf8")); console.log("translations.json OK")'

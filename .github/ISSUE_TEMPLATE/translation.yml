@@ -1,0 +1,24 @@
+name: 翻译问题
+description: 报告漏译或翻译不准确
+title: "[翻译] "
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Antigravity 版本
+      placeholder: "例如 2.24.0"
+    validations:
+      required: true
+  - type: textarea
+    id: text
+    attributes:
+      label: 原文和建议译文
+      description: 请只提交界面文字，不要提交聊天记录、令牌或项目内容。
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 出现位置和复现步骤
+    validations:
+      required: true
