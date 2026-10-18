@@ -84,7 +84,7 @@ flowchart LR
 | 项目 | 状态 |
 | --- | --- |
 | 当前验证版本 | macOS + Google Antigravity 2.24.0 |
-| 最新公开版本 | [v0.1.0](https://github.com/jin-shanghai/antigravity-chinese-macos/releases/tag/v0.1.0) |
+| 最新公开版本 | [v0.1.1](https://github.com/jin-shanghai/antigravity-chinese-macos/releases/tag/v0.1.1) |
 | 支持语言 | 简体中文（`zh-CN`） |
 | 运行平台 | macOS |
 | 官方 App 修改 | 不修改 |
