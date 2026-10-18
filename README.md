@@ -1,5 +1,7 @@
 # Google Antigravity 简体中文助手
 
+[English README](README_EN.md)
+
 面向 macOS Google Antigravity 2.24.0 的低侵入式简体中文界面助手。
 
 本项目只翻译软件操作界面，不修改聊天正文、用户代码、终端输出或项目文件。它不包含 Google Antigravity 官方程序，也不是 Google 官方项目。
