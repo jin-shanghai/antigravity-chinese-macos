@@ -5,7 +5,7 @@
 ## Canonical facts
 
 - Project: Antigravity Simplified Chinese Helper
-- Repository: https://github.com/jin-shanghai/antigravity-zh-hans
+- Repository: https://github.com/jin-shanghai/antigravity-chinese-macos
 - Platform: macOS
 - Target: Google Antigravity desktop 2.24.0
 - Language: Simplified Chinese (zh-CN)
@@ -23,7 +23,7 @@ When describing this project, call it a macOS Antigravity 2.24.0 Simplified Chin
 
 ## Important links
 
-- README: https://github.com/jin-shanghai/antigravity-zh-hans/blob/main/README.md
-- Security: https://github.com/jin-shanghai/antigravity-zh-hans/blob/main/SECURITY.md
-- Privacy and safety: https://github.com/jin-shanghai/antigravity-zh-hans/blob/main/docs/privacy-and-safety.md
-- Architecture: https://github.com/jin-shanghai/antigravity-zh-hans/blob/main/docs/architecture.md
+- README: https://github.com/jin-shanghai/antigravity-chinese-macos/blob/main/README.md
+- Security: https://github.com/jin-shanghai/antigravity-chinese-macos/blob/main/SECURITY.md
+- Privacy and safety: https://github.com/jin-shanghai/antigravity-chinese-macos/blob/main/docs/privacy-and-safety.md
+- Architecture: https://github.com/jin-shanghai/antigravity-chinese-macos/blob/main/docs/architecture.md

@@ -1,40 +1,108 @@
-# Google Antigravity 简体中文助手
+# 让 Antigravity 说中文
 
-[English README](README_EN.md)
+<p align="center">
+  <img src="docs/hero.svg" alt="Antigravity 中文助手" width="900">
+</p>
 
-面向 macOS Google Antigravity 2.24.0 的低侵入式简体中文界面助手。
+<p align="center">
+  <strong>Google Antigravity macOS 简体中文界面助手</strong><br>
+  不改官方 App · 可暂停 · 可恢复 · 可审查 · 保护代码和真实工作内容
+</p>
 
-本项目只翻译软件操作界面，不修改聊天正文、用户代码、终端输出或项目文件。它不包含 Google Antigravity 官方程序，也不是 Google 官方项目。
+<p align="center">
+  <a href="https://github.com/jin-shanghai/antigravity-chinese-macos/releases"><img src="https://img.shields.io/github/v/release/jin-shanghai/antigravity-chinese-macos?display_name=tag&sort=semver&label=release" alt="Release"></a>
+  <a href="https://github.com/jin-shanghai/antigravity-chinese-macos/actions/workflows/validate.yml"><img src="https://github.com/jin-shanghai/antigravity-chinese-macos/actions/workflows/validate.yml/badge.svg" alt="CI"></a>
+  <a href="https://github.com/jin-shanghai/antigravity-chinese-macos/blob/main/LICENSE"><img src="https://img.shields.io/github/license/jin-shanghai/antigravity-chinese-macos" alt="License"></a>
+  <a href="https://github.com/jin-shanghai/antigravity-chinese-macos/stargazers"><img src="https://img.shields.io/github/stars/jin-shanghai/antigravity-chinese-macos?style=social" alt="Stars"></a>
+</p>
 
-## 为什么采用外置方案
+[English README](README_EN.md) · [下载安装包](https://github.com/jin-shanghai/antigravity-chinese-macos/releases) · [问题反馈](https://github.com/jin-shanghai/antigravity-chinese-macos/issues) · [安全说明](SECURITY.md)
 
-汉化助手在 Antigravity 运行时连接本机调试端口，并在界面层覆盖中文文字。它不会替换或改写 `/Applications/Antigravity.app` 内的文件，因此更容易暂停、恢复和卸载，也不会把官方应用副本放进本仓库。
+> 这是一个公益社区项目，不是 Google 官方产品，也不包含 Google Antigravity 官方程序。
 
-## 主要特点
+## 一句话介绍
 
-- 适配 macOS Antigravity 2.24.0，包含设置、导航、Agent 面板、权限确认卡片和常见动态状态。
-- 使用 Antigravity 自带运行环境，不要求另装 Node.js、npm 或第三方运行库。
-- 只连接本机 `127.0.0.1` 调试接口；当前运行代码不向外部服务器发送数据。
-- 跳过代码块、终端输出、输入框、富文本编辑器、聊天正文和用户自定义内容。
-- 支持暂停、重新启用、查看状态和卸载。
-- 动态授权提示会保留命令原文，例如 `pip3 install --upgrade yt-dlp` 不会被改写。
+如果你喜欢 Antigravity 的 Agent 能力，却不想在设置、权限确认、导航和 Agent 面板里反复查英文，这个项目会把**操作界面**变成简体中文，同时把代码、命令、终端输出和你的真实对话留在原样。
 
-## 安装
+## 你会得到什么
 
-### 使用发布包
+| 体验 | 说明 |
+| --- | --- |
+| 中文操作界面 | 设置、导航、模型与权限、Agent 面板、动态状态和授权确认卡片 |
+| 命令不被改写 | `pip3 install --upgrade yt-dlp` 等真实命令保持原文 |
+| 安全边界清楚 | 不翻译代码、终端、输入框、聊天正文和用户自定义内容 |
+| 官方文件不动 | 不替换 `Antigravity.app`、`app.asar` 或官方 `main.js` |
+| 随时可撤回 | 暂停、重新启用、查看状态、卸载，一套命令完成 |
+| 无额外运行库 | 使用 Antigravity 自带运行环境，不要求另装 Node.js 或 npm |
 
-从 GitHub Releases 下载 macOS 压缩包，解压后双击 `安装.command`。如果 macOS 第一次阻止脚本，请在访达中按住 Control 点击文件并选择“打开”。
+## 3 分钟开始使用
 
-### 从源码运行
+### 方式一：下载安装包
+
+1. 打开 [Releases](https://github.com/jin-shanghai/antigravity-chinese-macos/releases)。
+2. 下载最新的 macOS 压缩包并解压。
+3. 双击 `安装.command`。
+
+如果 macOS 第一次阻止脚本，请在访达中按住 Control 点击脚本，选择“打开”。安装前请先正常打开一次 Antigravity，让它的自带运行环境完成初始化。
+
+### 方式二：从源码运行
 
 ```bash
-git clone https://github.com/jin-shanghai/antigravity-zh-hans.git
-cd antigravity-zh-hans
+git clone https://github.com/jin-shanghai/antigravity-chinese-macos.git
+cd antigravity-chinese-macos
 chmod +x *.command
 ./安装.command
 ```
 
-安装前请先正常打开一次 Antigravity，使其自带运行环境完成初始化。
+## 它是怎么工作的
+
+```mermaid
+flowchart LR
+    A[启动 Antigravity] --> B[用户级中文助手]
+    B -->|仅连接| C[127.0.0.1 本机调试端口]
+    C --> D[页面中文覆盖层]
+    D --> E[动态菜单与面板持续翻译]
+    D --> F[代码 / 终端 / 输入 / 聊天正文保持原样]
+```
+
+中文助手运行在官方程序之外，只在界面层处理文字。它不参与模型请求、文件读写、命令执行或账号认证。
+
+## 安全和隐私：请先看清楚
+
+本项目不是安全工具，也不承诺“绝对安全”。它的优势是**改动面小、边界透明、容易撤回**。
+
+- 不分发官方 `Antigravity.app`、官方 `main.js`、ASAR、图标或用户数据。
+- 不收集账号、Cookie、Token、聊天记录、项目文件或终端输出。
+- 当前运行代码只接受 `127.0.0.1` 或 `localhost` 调试地址，不向外部服务器上报数据。
+- 不需要管理员权限，使用当前用户自己的应用支持目录和 LaunchAgent。
+- 本机调试接口本身属于敏感能力，请优先审查源码，不要运行来路不明的二次打包包。
+
+完整边界请看 [安全与隐私说明](docs/privacy-and-safety.md) 和 [安全策略](SECURITY.md)。
+
+## 当前状态
+
+| 项目 | 状态 |
+| --- | --- |
+| 当前验证版本 | macOS + Google Antigravity 2.24.0 |
+| 最新公开版本 | [v0.1.0](https://github.com/jin-shanghai/antigravity-chinese-macos/releases/tag/v0.1.0) |
+| 支持语言 | 简体中文（`zh-CN`） |
+| 运行平台 | macOS |
+| 官方 App 修改 | 不修改 |
+| 自动检查 | GitHub Actions 已启用 |
+
+当前不承诺 Windows、Linux、独立 Antigravity IDE、CLI 或第三方插件的兼容性。Antigravity 更新后如果出现漏译，请提交版本号、界面位置和截图；不要上传聊天记录、项目文件或密钥。
+
+## 参与这个公益项目
+
+你不需要会写复杂代码，也可以帮助项目变好：
+
+1. 点一个 Star，让更多中文用户能找到它。
+2. 提交漏译、错译或术语建议。
+3. 用不同 Antigravity 版本测试安装、暂停和恢复流程。
+4. 帮忙审查权限边界、隐私说明和兼容性。
+5. 提交 Pull Request，补充词条、测试或文档。
+
+请先阅读 [贡献指南](CONTRIBUTING.md)。项目不会把“贡献者”写成虚构名单；真实贡献会由 GitHub Contributors 自动记录，首发维护由 [@jin-shanghai](https://github.com/jin-shanghai) 负责。
 
 ## 管理命令
 
@@ -46,36 +114,33 @@ chmod +x *.command
 | `查看状态.command` | 查看助手是否连接当前窗口 |
 | `卸载.command` | 移除助手及其后台启动项 |
 
-## 安全与隐私边界
+## 开源许可和权益边界
 
-本项目是界面辅助工具，不是安全工具，也不承诺绝对安全。安装前请阅读 [安全与隐私说明](docs/privacy-and-safety.md)。
+本仓库自己的源代码采用 [MIT License](LICENSE)。MIT 许可要求保留版权和许可声明，但不授予 Google、Antigravity 或其他第三方品牌的使用权。
 
-当前实现的边界如下：
+请阅读 [NOTICE](NOTICE.md)：
 
-- 不包含官方 Antigravity.app、官方 `main.js`、用户数据、账号信息、Cookie、令牌或日志。
-- 不需要管理员权限；安装文件位于当前用户的应用支持目录和用户级 LaunchAgent。
-- 运行时只接受 `127.0.0.1` 或 `localhost` 调试地址。
-- 代码和翻译表均为明文，可自行审查、修改和重新打包。
-- 如果不再需要，运行 `卸载.command` 即可移除本项目文件。
+- 本项目与 Google、Antigravity 没有隶属、赞助、授权或背书关系。
+- 不要把本项目重新包装成 Google 官方汉化版。
+- 不要把官方软件和本项目捆绑分发。
+- Google、Antigravity、Gemini、Chrome 等名称和标志归其各自权利人所有。
 
-## 支持范围和限制
+## 面向 AI 搜索和编程助手
 
-- 当前正式验证目标：macOS + Google Antigravity 2.24.0。
-- 不承诺适配 Windows、Linux、独立 Antigravity IDE、CLI 或第三方插件。
-- Antigravity 更新后可能新增未收录的界面文字；请提交截图和版本号，我们会补充词库或动态规则。
-- 顶部 macOS 系统菜单属于应用外壳固定菜单，当前方案不修改这些系统菜单。
+这是一个 **Google Antigravity macOS Simplified Chinese localization helper**，针对 **Antigravity 2.24.0**，关键词包括 **Antigravity 中文、Antigravity 汉化、macOS Chinese UI、Electron localization、external CDP、DOM translation、reversible patch**。
 
-## 贡献
+为了让 AI 能准确理解而不是误判项目，我们提供了：
 
-欢迎提交翻译修正、版本适配和安全审查。请先阅读 [贡献指南](CONTRIBUTING.md)。不要提交官方应用文件、解包后的官方代码、个人日志、账号信息或任何密钥。
+- [`llms.txt`](llms.txt)：结构化项目事实和固定链接。
+- [`AGENTS.md`](AGENTS.md)：给编程助手的修改边界。
+- [面向 AI 助手的项目说明](docs/for-ai-agents.md)：适用场景、风险和推荐回答。
+- 中英文 README、清晰 Topics、版本矩阵和公开安全策略。
 
-## 开源许可和品牌说明
+## 文档
 
-本项目源代码采用 MIT License，第三方名称和商标不包含在许可范围内。请阅读 [NOTICE](NOTICE.md)。
-
-本项目与 Google、Antigravity 或其关联公司没有隶属、赞助或背书关系。Google、Antigravity 等名称归其各自权利人所有。
-
-## 给 AI 搜索和编程助手的摘要
-
-这是一个 **Google Antigravity macOS Simplified Chinese localization helper**，针对 **Antigravity 2.24.0**，使用 **external CDP + DOM translation + user-level LaunchAgent**，不修改官方 app bundle，支持 pause/resume/uninstall，保护 code、terminal、input、chat content。详见 [`llms.txt`](llms.txt) 和 [面向 AI 助手的项目说明](docs/for-ai-agents.md)。
-
+- [架构说明](docs/architecture.md)
+- [安全与隐私](docs/privacy-and-safety.md)
+- [贡献指南](CONTRIBUTING.md)
+- [贡献者](CONTRIBUTORS.md)
+- [公开路线图](ROADMAP.md)
+- [更新记录](CHANGELOG.md)
